@@ -49,7 +49,7 @@ router.put('/', async (req, res) => {
     const checkNama = namaCheck(nama)
     if (!checkNama) return sendResponse(400, "", "Nama Tidak Boleh Mengandung Angka dan Symbol", res)
     const check = await passwordCheck(nip, password)
-    if(!check.compare) return SendResponse(400, "", "Password Lama Tidak Sesuai", res)
+    if(!check.compare) return sendResponse(400, "", "Password Lama Tidak Sesuai", res)
     
     const encryptedPassword = await bcrypt.hash(passwordBaru, 10)
     try {
